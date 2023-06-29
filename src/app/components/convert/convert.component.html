@@ -1,0 +1,45 @@
+<input
+  class="px-4 py-2 border rounded"
+  type="number"
+  [(ngModel)]="fromPrice"
+  (input)="onChangeFromPrice(fromPrice)"
+/>
+
+<select
+  name=""
+  id=""
+  class="bg-blue-500 py-3 px-4 rounded mr-2"
+  [(ngModel)]="fromCurrency"
+  (change)="onChangeFromSelect(fromCurrency, fromPrice)"
+>
+  <option
+    *ngFor="let opt of options; let i = index"
+    [value]="opt"
+    [selected]="fromCurrency === opt"
+  >
+    {{ opt }}
+  </option>
+</select>
+
+<input
+  class="px-4 py-2 border rounded"
+  type="number"
+  [(ngModel)]="toPrice"
+  (input)="onChangeToPrice(toPrice)"
+/>
+
+<select
+  name=""
+  id=""
+  class="bg-yellow-500 py-3 px-4 rounded"
+  [(ngModel)]="toCurrency"
+  (change)="onChangeToSelect(toCurrency, toPrice)"
+>
+  <option
+    *ngFor="let opt of options; let i = index"
+    [value]="opt"
+    [selected]="toCurrency === opt"
+  >
+    {{ opt }}
+  </option>
+</select>
